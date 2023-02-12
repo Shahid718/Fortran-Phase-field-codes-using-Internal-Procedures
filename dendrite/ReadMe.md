@@ -72,7 +72,7 @@ It can be seen in the output dislin file for `step = 1`
   phi = Initial_microstructure ( seed )
 ```
 
-### **Setting Initial Dislin routines for multiplot**
+### **Setting initial Dislin routines for multiplot**
 
 To get the multiplot, the initial dislin routines are called here. `png` file format is set with routine `metafl ()`. The default background colour for graphical windows and image formats such as TIFF, GIF and PNG is black and is changed to white with the routine `scrmod ()`. `disini` initializes dislin.
 
