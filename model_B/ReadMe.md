@@ -52,7 +52,7 @@ Here we briefly describe **fd_ch_dislin_sub_v1.f90**
 
 ### **Parameters**
 
-This section defines and declare the parameters as in the previous repository.
+This section defines and declare the parameters as in the [previous repository](https://github.com/Shahid718/Programming-Phase-field-in-Fortran/tree/main/model_B/cahn_hilliard).
 
 ### **Initial microstructure**
 
@@ -188,9 +188,9 @@ The output section makes a single call. Now both write opeations and the dislin 
 This section has the user defined routines (table 2). Only three routines are called in the main program i.e., one in each section.
 
 
-**Table 2: User-defined routines**
+**Table 2:**
 
-|                            |
+|  User-defined routines     |
 | ---------------------------| 
 |  Introduce_fluctuation     |     
 |  Perform_evolution         |                    
@@ -225,7 +225,7 @@ Below, we show the user-defined functions in `version 1`.
 
 **Table 3:** 
 
-|    |
+|  user-defined functions   |
 | --------------------------|
 |  Introduce_fluctuation    |     
 |  Deriv_free_energy        |                    
@@ -247,9 +247,9 @@ Where the laplacian function is
 
 $$ \nabla^2  \left( \frac{\partial f}{\partial {c_{ij}^{n}}}-\kappa \nabla^2 {c_{ij}^{n}} \right)$$
 
-**Table 4: User-defined functions**
+**Table 4:**
 
-|                             |
+| User-defined functions      |
 | --------------------------  |
 |  Introduce_fluctuation      |                       
 |  Laplacian                  |
