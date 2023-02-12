@@ -192,7 +192,7 @@ The output section makes a single call. Now both write opeations and the dislin 
 This section has the user defined routines (table 2). Only three routines are called in the main program i.e., one in each section.
 
 
-**Table 2: 
+**Table 2:** 
 
 |   User-defined routines    |
 | ---------------------------| 
