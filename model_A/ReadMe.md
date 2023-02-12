@@ -16,7 +16,7 @@ The first part demonstrates: How to implement the code, and what are the expecte
 
 # **Fortran implementation**
 
-If the **dislin code** runs successfully, it produces two kinds of outputs; one is shown on the console. The console output shows the done steps as in the previous repository but does not show the dislin plot. The dislin plot with other files are saved as: 
+If the **dislin code** runs successfully, it produces two kinds of outputs; one is shown on the [console](https://github.com/Shahid718/Programming-Phase-field-in-Fortran/tree/main/model_A/allen_cahn). The console output shows the done steps as in the previous repository but does not show the dislin plot. The dislin plot with other files are saved as: 
 
 ```
 Output_files
@@ -52,7 +52,7 @@ Here we briefly describe **fd_ac_dislin_sub_v1.f90**
 
 ### **Parameters**
 
-This section defines and declares the parameters as in the previous repository.
+This section defines and declares the parameters as in the [previous repository](https://github.com/Shahid718/Programming-Phase-field-in-Fortran/tree/main/model_A/allen_cahn).
 
 ### **Initial microstructure**
 
@@ -115,7 +115,7 @@ call cpu_time ( finish )
 
 ### **Output**
 
-The output section makes two calls for writing data on the file; the first call writes parameters which are initially provided and the computed time, the second one writes phi at the end of the simulation. The third call is for color plot with Dislin library. The dislin graphical library module is included in the begining. This library has many subroutines as we used in the previous repository. Therefore, to make it under one subroutine call here i.e., `Dislin_color_plot()` we put together all those related routines. This makes it easy to get the desired plot with a single call.
+The output section makes two calls for writing data on the file; the first call writes parameters which are initially provided and the computed time, the second one writes phi at the end of the simulation. The third call is for color plot with Dislin library. The dislin graphical library module is included in the begining. This library has many subroutines as we used in the [previous repository](https://github.com/Shahid718/Programming-Phase-field-in-Fortran/tree/main/dendrite). Therefore, to make it under one subroutine call here i.e., `Dislin_color_plot()` we put together all those related routines. This makes it easy to get the desired plot with a single call.
 
 ```Fortran 
   call Write_input_parameters_on_file
