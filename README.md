@@ -75,7 +75,7 @@ contains
   end program
 ```
 
-The second feature of this repository is the use of <span style="color:green "> **do concurrent construct**</span>. The `do concurrent construct` was introduced in <span style="color:green "> **Fortran 2008**</span>. It aids in generating the vector code to improve performance. In the previous work we have used it already.
+The second feature of this repository is the use of <span style="color:green "> **do concurrent construct**</span>. The `do concurrent construct` was introduced in <span style="color:green "> **Fortran 2008**</span>. It aids in generating the vector code to improve performance. In the [previous work](https://github.com/Shahid718/Programming-Phase-field-in-Fortran/tree/main/model_B/example) we have used it already.
 
 Care must be taken when using `do concurrent construct` with procedures. If procedures are called with in do concurrent construct they are required to be <span style="color:green ">**pure**</span>. In pure procedures, the intent attribute of all dummy variable must be declared. The codes in this repository usually use simple procedure for the intial microstructure and the pure procedures for the evolution.
 
