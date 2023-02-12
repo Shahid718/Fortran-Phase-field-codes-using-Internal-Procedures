@@ -1,0 +1,17 @@
+ 
+ ------------------------------------------------
+   Input Parameters of Dendritic Solidification  
+ ------------------------------------------------
+ 
+      Nx                       = 300
+      Ny                       = 300
+      number of steps          = 2000
+      time difference          = 0.0001
+      initial seed             = 5.0
+      delta                    = 0.02
+      gradient coefficient     = 1.8
+      anisotropy               = 6.0
+      gamma                    = 10.0
+      computed time in seconds = 19.06
+ 
+ ------------------------------------------------

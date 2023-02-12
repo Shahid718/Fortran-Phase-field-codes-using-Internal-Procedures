@@ -1,0 +1,17 @@
+ 
+ ------------------------------------------------
+   Input Parameters for Cahn-Hilliard Equation   
+ ------------------------------------------------
+ 
+      Nx                        = 64
+      Ny                        = 64
+      number of steps           = 10000
+      time difference           = 0.01
+      initial concentration     = 0.4
+      mobility                  = 1.0
+      gradient coefficient      = 0.5
+      noise                     = 0.02
+      barrier height            = 1.0
+      computed time in seconds  = 0.52
+ 
+ ------------------------------------------------

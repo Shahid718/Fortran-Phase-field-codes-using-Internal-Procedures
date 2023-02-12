@@ -1,0 +1,17 @@
+ 
+ ------------------------------------------------
+    Input Parameters for Allen-Cahn Equation     
+ ------------------------------------------------
+ 
+      Nx                        = 64
+      Ny                        = 64
+      number of steps           = 1500
+      time difference           = 0.01
+      initial phi               = 0.5
+      mobility                  = 1.0
+      gradient coefficient      = 1.0
+      noise                     = 0.02
+      barrier height            = 1.0
+      computed time in seconds  = 0.05
+ 
+ ------------------------------------------------
