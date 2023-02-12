@@ -1,8 +1,8 @@
-<style>H1{color:blue;}</style>
+<!--- <style>H1{color:blue;}</style>  --->
 
-<style>H2{color:DarkOrange;}</style>
+<!--- <style>H2{color:DarkOrange;}</style> --->
 
-<style>p{color:Black;}</style>
+<!--- <style>p{color:Black;}</style> --->
 
 # **Fortran Phase-field dendrite simulation using internal procedures**
 
@@ -26,6 +26,7 @@ Output_files
 └── temperature_2000.dat
 ```
 ![Output](images/dislin.PNG)
+
 **dislin** is the default name of the output Dislin plot.
 
 The **parameters** file is created as
@@ -208,9 +209,9 @@ The output section makes a single call. Now both write opeations are called with
 This section has the user defined procedures (table 2). Only four procedures are called in the main program.
 
 
-**Table 2: User-defined procedures**
+**Table 2:**
 
-|                            |
+|  User-defined procedures   |
 | ---------------------------| 
 |  Initial_microstructure    |     
 |  Perform_evolution         |       
@@ -293,7 +294,7 @@ Below, we show the user-defined procedures in `version 1`.
 
 **Table 3:** 
 
-|                                   |
+|     user-defined procedures       |
 | --------------------------        |
 |  Initial_microstructure           |     
 |  Set_boundary_conditions          |                    
@@ -308,4 +309,4 @@ Below, we show the user-defined procedures in `version 1`.
 | Write_input_parameters_on_file |
 |  Output_phi_and_temperature_on_files|
 
-For `version 2`, the evolution section is same as in `version 2` of function file.
+For **version 2**, the evolution section is same as in `version 2` of function file.
