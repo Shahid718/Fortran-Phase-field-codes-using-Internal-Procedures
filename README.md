@@ -22,7 +22,7 @@ Function outputs a single value, however a subroutine can produce several values
 
 <span style="color:green "> **Internal procedures**</span> differ from the <span style="color:green "> **intrinsic procedures**</span>. The intrinsics are defined by the standard e.g., [call cpu_time ( )](https://gcc.gnu.org/onlinedocs/gfortran/CPU_005fTIME.html). Internal procedures, on the other hand, are defined by the user and are placed in the same file. The contains statement separates the main program from the subprogram i.e., the internal procedure. The basic idea is shown below.
 
-![picprocedure](procedure.png)
+![pic_procedure](procedure_1.PNG)
 
 In many aspects, procedures are similar to the main program. They have a similar appearance, a name, and can also have local variables. That is why the procedures are also called sub-programs.
 
