@@ -25,7 +25,7 @@ Output_files
 ├── phi_2000.dat
 └── temperature_2000.dat
 ```
-![Output](images/dislin.PNG)
+![dislin_output](images/dislin.png)
 
 **dislin** is the default name of the output Dislin plot.
 
