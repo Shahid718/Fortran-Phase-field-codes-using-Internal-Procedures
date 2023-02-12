@@ -1,8 +1,8 @@
-<style>H1{color:blue;}</style>
+<!---  <style>H1{color:blue;}</style>  --->
 
-<style>H2{color:DarkOrange;}</style>
+<!--- <style>H2{color:DarkOrange;}</style>  --->
 
-<style>p{color:Black;}</style>
+<!---  <style>p{color:Black;}</style>  --->
 
 # **Fortran Phase-field Allen-Cahn Simulation using internal procedures**
 
@@ -192,9 +192,9 @@ The output section makes a single call. Now both write opeations and the dislin 
 This section has the user defined routines (table 2). Only three routines are called in the main program i.e., one in each section.
 
 
-**Table 2: User-defined routines**
+**Table 2: 
 
-|                            |
+|   User-defined routines    |
 | ---------------------------| 
 |  Introduce_fluctuation     |     
 |  Perform_evolution         |                    
@@ -230,13 +230,13 @@ Below, we show the user-defined functions in `version 1`.
 
 **Table 3:** 
 
-|    |
+|   user-defined functions  |
 | --------------------------|
 |  Introduce_fluctuation    |     
 |  Deriv_free_energy        |                    
 |  Laplacian                |
 
-For `version 2`, the evolution section invokes the `Dummy_phi` function in the expression:
+For **version 2**, the evolution section invokes the `Dummy_phi` function in the expression:
 
 ```Fortran
 ...
@@ -252,9 +252,9 @@ Where the `Dummy phi` function is
 
 $$   \left( \frac{\partial f}{\partial {\phi_{ij}^{n}}}-\kappa \nabla^2 {\phi_{ij}^{n}} \right)$$
 
-**Table 4: User-defined functions**
+**Table 4:**
 
-|    |
+|   User-defined functions  |
 | --------------------------|
 |  Introduce_fluctuation    |                       
 |  Dummy_phi                |
