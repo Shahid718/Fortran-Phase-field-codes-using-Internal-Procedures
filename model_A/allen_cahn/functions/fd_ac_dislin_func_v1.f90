@@ -96,8 +96,8 @@ program fd_ac_test
 
      ! adjust order parameter in range
 
-     if ( phi(i,j) >= 0.99999 ) phi(i,j) = 0.99999
-     if ( phi(i,j) < 0.00001 )  phi(i,j) = 0.00001
+     where ( phi >= 0.99999 ) phi = 0.99999
+     where ( phi < 0.00001  ) phi = 0.00001
 
 
      ! print steps on the console
