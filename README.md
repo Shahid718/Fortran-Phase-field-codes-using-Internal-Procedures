@@ -77,21 +77,21 @@ contains
 
 The second feature of this repository is the use of <span style="color:green "> **do concurrent construct**</span>. The `do concurrent construct` was introduced in <span style="color:green "> **Fortran 2008**</span>. It aids in generating the vector code to improve performance. In the [previous work](https://github.com/Shahid718/Programming-Phase-field-in-Fortran/tree/main/model_B/example) we have used it already.
 
-Care must be taken when using `do concurrent construct` with procedures. If procedures are called with in do concurrent construct they are required to be <span style="color:green ">**pure**</span>. In pure procedures, the intent attribute of all dummy variable must be declared. The codes in this repository usually use simple procedure for the intial microstructure and the pure procedures for the evolution.
+Care must be taken when using `do concurrent construct` with procedures. If procedures are called with in do concurrent construct they are required to be <span style="color:green ">**pure**</span>. In pure procedures, the intent attribute of all dummy variable must be declared. These codes  usually use simple procedure for the intial microstructure and the pure procedures for the evolution.
 
 ## **Conventions**
 
-Here we present some conventions relavant to the repository.
+Here we present some conventions.
 
-* The <span style="color:green ">**filename**</span> is based on: the algorithm, the model name, dislin library (if used), the type of internal procedure employed i.e., function or subroutine, and the version. All files are written in free source format.
+* The <span style="color:green ">**filename**</span> is based on: the algorithm, the model name, dislin library (if used), the type of internal procedure i.e., function or subroutine, and the version. All files are written in free source format.
 
 ![file_name_style](images/file_name.png)
 
-* The usage of <span style="color:green ">**comments**</span> in the code serves many purposes. They are used to differentiate different sections with the style **==**, for procedures with **---** and for others with simply **!**
+* The usage of <span style="color:green ">**comments**</span> in the code serves many purposes. They are used to differentiate different sections with the style `==`, for procedures with `---` and for others with simply `!`
 
 ![comment](images/comments.png)
 
-* The granularity of the program is based on the number of procedures. For instance, the *left* code makes 4 calls to subroutines in the evolution section and *right* code only 1; therefore, the former is called <span style="color:green ">**fine-grained**</span> and later <span style="color:green ">**coarse-grained**</span> code. 
+* The granularity of the program depends on the number of procedures. For instance, the *left* code makes 4 calls to subroutines and *right* code only 1; therefore, the former is called <span style="color:green ">**fine-grained**</span> and later <span style="color:green ">**coarse-grained**</span> code. 
 
 ![flowchart](images/granularity.png)
 
@@ -104,7 +104,7 @@ Here we present some conventions relavant to the repository.
 |   random_number ( )   |  Introduce_fluctuation            |     
 |   cpu_time ( )        |  Set_boundary_conditions          |           
 
-* To make the procedure arguments easy to follow, the `_` is appended at the end of dummy arguments. This practice makes them consistent with the actual argument. For example, the code above has the dummy argument `con_` for the actual argument `con`.
+* To make the procedure arguments easy to follow, `_` is appended at the end of dummy arguments. This practice makes them consistent with the actual argument. For example, the code above has the dummy argument `con_` for the actual argument `con`.
 
 ## **Get the code**
 
