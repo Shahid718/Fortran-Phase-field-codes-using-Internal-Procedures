@@ -31,7 +31,7 @@ The subprogram declares the dummy arguments with the intent attribute and can al
 The following example does show the use of subroutine and function. The <span style="color:green "> **main program**</span> declares the parameters and makes call to subroutine `fluctuation1` and invokes function `fluctuation2`. 
 
 ```Fortran
-program test
+program example
   implicit none
 
   integer ( kind = 4 ), parameter :: Nx = 64, Ny = 64
@@ -72,7 +72,7 @@ contains
 
   end function fluctuation2
 
-  end program
+end program
 ```
 
 The second feature of this repository is the use of <span style="color:green "> **do concurrent construct**</span>. The `do concurrent construct` was introduced in <span style="color:green "> **Fortran 2008**</span>. It aids in generating the vector code to improve performance. In the [previous work](https://github.com/Shahid718/Programming-Phase-field-in-Fortran/tree/main/model_B/example) we have used it already.
