@@ -93,7 +93,7 @@ Here we present some conventions.
 
 * The granularity of the program depends on the number of procedures. For instance, the *left* code makes 4 calls to subroutines and *right* code only 1; therefore, the former is called <span style="color:green ">**fine-grained**</span> and later <span style="color:green ">**coarse-grained**</span> code. 
 
-![flowchart](images/granularity.png)
+![flowchart](images/granularity.jpg)
 
 * The program makes calls to many routines; they are either intrinsic or user defined. To differentiate, we write all *intrinsic subroutines* with <span style="color:green ">**small letters**</span>, and *user-defined routines* with <span style="color:green ">**first letter capital**</span>. 
 
