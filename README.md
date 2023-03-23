@@ -15,10 +15,10 @@ The repository contains phase-field Fortran codes using
 
 Procedures in Fortran are of two types:
 
-*  functions
-*  subroutines
+*  function
+*  subroutine
 
-Function outputs a single value, however a subroutine can produce several values. This is the primary distinction between a function and a subroutine. Additionally, a user-defined function is used similarly to an intrinsic function, however using a subroutine requires a `call` keyword [[Ref]](https://en.wikibooks.org/wiki/Fortran/Fortran_procedures_and_functions).
+Function has a single output, however a subroutine can produce several. This is the primary distinction between a function and a subroutine. Additionally, a user-defined function is used similarly to an intrinsic function, however using a subroutine requires a `call` keyword [[Ref]](https://en.wikibooks.org/wiki/Fortran/Fortran_procedures_and_functions).
 
 <span style="color:green "> **Internal procedures**</span> differ from the <span style="color:green "> **intrinsic procedures**</span>. The intrinsics are defined by the standard e.g., [call cpu_time ( )](https://gcc.gnu.org/onlinedocs/gfortran/CPU_005fTIME.html). Internal procedures, on the other hand, are defined by the user and are placed in the same file. The contains statement separates the main program from the subprogram i.e., the internal procedure. The basic idea is shown below.
 
