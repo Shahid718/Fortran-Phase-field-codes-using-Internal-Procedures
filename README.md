@@ -114,6 +114,10 @@ gh repo clone Shahid718/Fortran-Phase-field-codes-using-Internal-Procedures
 
 ## **Compile and run**
 
+* **using script by Dislin**
+
+> f90link -a -r8 main
+
 * The <span style="color:green ">**general commands** </span> with <span style="color:green ">**dislin graphical library** </span> are:
 
 For **Linux OS** &mdash; with **gfortran** &mdash; to compile, enter
