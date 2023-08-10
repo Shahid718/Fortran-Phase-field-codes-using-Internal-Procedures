@@ -162,7 +162,7 @@ contains
     integer ( kind = 4 ), intent ( in )                     :: i_, j_
 
 
-    Deriv_free_energy(i,j) = A_*( 2.0*con_(i_,j_)*( 1.0 - con_(i_,j_) )**2 - &
+    Deriv_free_energy(i_,j_) = A_*( 2.0*con_(i_,j_)*( 1.0 - con_(i_,j_) )**2 - &
          & 2.0*con_(i_,j_)**2*( 1.0 - con_(i_,j_) ) )
 
 
