@@ -6,7 +6,7 @@
 !              Shahid Maqbool
 ! 
 !   Modified :
-!                13 Feb. 2023
+!                13 Feb. 2023, 10 August 2023
 !
 !   To compile and run :
 !                          Check ReadMe
@@ -45,15 +45,14 @@ program fd_ch_test
   ! microstructure 
 
   real ( kind = 8 )   , dimension ( Nx, Ny ) :: con, lap_con, dfdcon
-  real ( kind = 8 )   , dimension ( Nx, Ny ) :: dummy_con, laplace
-  integer ( kind = 4 ) :: i, j 
+  real ( kind = 8 )   , dimension ( Nx, Ny ) :: dummy_con
 
 
   call cpu_time ( start )
 
 
   ! ===========================================================================
-  !                            initial microstucture
+  !                            initial microstructure
   ! ===========================================================================
 
 
@@ -112,7 +111,7 @@ contains
   function Introduce_fluctuation (  initial_con_ )
     implicit none
 
-    real ( kind = 8 ) :: noise = 0.02
+    real ( kind = 8 )                       :: noise = 0.02
     real ( kind = 8 ), intent ( in )        :: initial_con_
     real ( kind = 8 ), dimension ( Nx, Ny ) :: Introduce_fluctuation 
     real ( kind = 8 ), dimension ( Nx, Ny ) :: r
@@ -140,7 +139,6 @@ contains
     real ( kind = 8 ), dimension ( Nx, Ny ), intent ( out )  :: dummy_con_
     real ( kind = 8 ), dimension ( Nx, Ny ) :: laplacian
     real ( kind = 8 )    :: grad_coef = 0.5
-    real ( kind = 8 )    :: dt = 0.01
     real ( kind = 8 )    :: A  = 1.0
     integer ( kind = 4 ) :: i, j, jp, jm, ip, im, dx = 1, dy = 1
 
@@ -152,7 +150,7 @@ contains
        dfdcon_(i,j) = A*( 2.0*con_(i,j)*( 1.0 - con_(i,j) )**2 &
             - 2.0*con_(i,j)**2*( 1.0 - con_(i,j) ) )
 
-       ! laplace evaluation
+       ! Laplace evaluation
 
        jp = j + 1
        jm = j - 1
