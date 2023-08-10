@@ -6,7 +6,7 @@
 !              Shahid Maqbool
 ! 
 !   Modified :
-!                13 Feb. 2023
+!                13 Feb. 2023, 10 August 2023
 !
 !   To compile and run :
 !                          Check ReadMe
@@ -38,7 +38,7 @@ program fd_ac_test
 
   ! microstructure
 
-  real ( kind = 8 ), dimension ( Nx, Ny ) :: r, phi, dfdphi
+  real ( kind = 8 ), dimension ( Nx, Ny ) :: phi, dfdphi
   real ( kind = 8 ), dimension ( Nx, Ny ) :: lap_phi, dummy_phi
 
 
@@ -47,7 +47,7 @@ program fd_ac_test
 
 
   ! ===========================================================================
-  !                            initial microstucture
+  !                            initial microstructure
   ! ===========================================================================
 
 
