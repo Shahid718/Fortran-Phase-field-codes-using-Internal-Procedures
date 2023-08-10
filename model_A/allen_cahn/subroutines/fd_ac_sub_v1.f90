@@ -6,7 +6,7 @@
 !              Shahid Maqbool
 ! 
 !   Modified :
-!                13 Feb. 2023
+!                13 Feb. 2023, 10 August 2023
 !
 !   To compile and run :
 !                          Check ReadMe
@@ -48,8 +48,7 @@ program fd_ac_test
 
   real ( kind = 8 )   , parameter :: noise = 0.02
   real ( kind = 8 )   , parameter :: A  = 1.0
-  real ( kind = 8 )   , dimension ( Nx, Ny ) :: r, phi, dfdphi
-  real ( kind = 8 )   , dimension ( Nx, Ny ) :: lap_phi, dummy_phi
+  real ( kind = 8 )   , dimension ( Nx, Ny ) :: phi, dfdphi, lap_phi
   integer ( kind = 4 )            :: i, j, jp, jm, ip, im
 
 
@@ -58,7 +57,7 @@ program fd_ac_test
 
 
   ! ===========================================================================
-  !                            initial microstucture
+  !                            initial microstructure
   ! ===========================================================================
 
 
@@ -142,7 +141,7 @@ contains
     
     call random_number ( r_ )
 
-    phi = initial_phi + noise_*( 0.5 - r_ )
+    phi_ = initial_phi_ + noise_*( 0.5 - r_ )
 
     
   end subroutine Introduce_fluctuation
@@ -205,7 +204,7 @@ contains
 
   pure subroutine Evaluate_laplacian ( lap_phi_, phi_, dx_, dy_, &
        & i_ , j_, ip_, jp_, im_, jm_ )
-
+    implicit none
 
     real ( kind = 8 ), dimension ( Nx, Ny ), intent ( out ):: lap_phi_
     real ( kind = 8 ), dimension ( Nx, Ny ), intent ( in ) :: phi_ 
