@@ -6,7 +6,7 @@
 !              Shahid Maqbool
 ! 
 !   Modified :
-!                13 Feb. 2023
+!                13 Feb. 2023, 10 August 2023
 !
 !   To compile and run :
 !                            check ReadMe file
@@ -43,7 +43,6 @@ program fd_Kobayashi_model_test
 
   real ( kind = 8 )   :: tau   = 0.0003
   real ( kind = 8 )   :: epsilonb = 0.01
-  real ( kind = 8 )   :: mu    = 1.0
   real ( kind = 8 )   :: kappa = 1.8
   real ( kind = 8 )   :: delta = 0.02
   real ( kind = 8 )   :: aniso = 6.0
@@ -63,7 +62,7 @@ program fd_Kobayashi_model_test
   real ( kind = 8 ) , dimension( Nx, Ny ) :: epsil, epsilon_deriv
   real ( kind = 8 )                       :: phi_old, term1, term2
   real ( kind = 8 )                       :: theta, m
-  integer ( kind = 4 )                    :: i, j, istep, ip, im, jp, jm
+  integer ( kind = 4 )                    :: i, j, ip, im, jp, jm
 
 
   call cpu_time ( start )
@@ -71,7 +70,7 @@ program fd_Kobayashi_model_test
 
 
   ! ============================================================================
-  !                          initial microstucture
+  !                          initial microstructure
   ! ============================================================================
 
 
@@ -186,8 +185,8 @@ contains
     integer ( kind = 4 ), intent (in out )                  :: i_, j_
 
 
-    phi = 0.0
-    tempr = 0.0
+    phi_ = 0.0
+    tempr_ = 0.0
 
     do i_ = 1, Nx
        do j_ = 1, Ny
