@@ -6,7 +6,7 @@
 !              Shahid Maqbool
 ! 
 !   Modified :
-!                13 Feb. 2023
+!                13 Feb. 2023, 10 August 2023
 !
 !   To compile and run :
 !                            check ReadMe file
@@ -43,7 +43,6 @@ program fd_Kobayashi_model_test
 
   real ( kind = 8 )   :: tau   = 0.0003
   real ( kind = 8 )   :: epsilonb = 0.01
-  real ( kind = 8 )   :: mu    = 1.0
   real ( kind = 8 )   :: kappa = 1.8
   real ( kind = 8 )   :: delta = 0.02
   real ( kind = 8 )   :: aniso = 6.0
@@ -71,7 +70,7 @@ program fd_Kobayashi_model_test
 
 
   ! ============================================================================
-  !                          initial microstucture
+  !                          initial microstructure
   ! ============================================================================
 
 
@@ -107,15 +106,15 @@ program fd_Kobayashi_model_test
         if ( jm == 0 ) jm = Ny
         if ( jp == ( Ny + 1 ) ) jp = 1
 
-        ! invoking laplacian function
+        ! invoking Laplacian function
 
         lap_phi = Laplacian ( phi, dx, dy, i , j, ip, jp, im, jm )
         lap_tempr = Laplacian (tempr, dx, dy, i , j, ip, jp, im, jm )
 
         ! invoking gradient function
 
-        phidx = Gradient_x ( phi, dx, i, j, im, ip, jm, jp )
-        phidy = Gradient_y ( phi, dy, i, j, im, ip, jm, jp )
+        phidx = Gradient_x ( phi, dx, i, j, im, ip )
+        phidy = Gradient_y ( phi, dy, i, j, jm, jp )
 
         ! invoking angle function
 
@@ -254,14 +253,15 @@ contains
   ! ---------------------------------------------------------------------------
 
 
-  pure function Gradient_x ( phi_, dx_, i_, j_, im_, ip_, jm_, jp_ )
+  
+  pure function Gradient_x ( phi_, dx_, i_, j_, im_, ip_ )
     implicit none
 
 
     real ( kind = 8 ), dimension ( Nx, Ny ), intent ( in ) :: phi_
     real ( kind = 8 ), dimension ( Nx, Ny ):: gradient_x
     real ( kind = 8 ), intent ( in )       :: dx_
-    integer ( kind = 4 ), intent ( in )    :: i_, j_, ip_, im_, jp_, jm_
+    integer ( kind = 4 ), intent ( in )    :: i_, j_, ip_, im_
 
 
     Gradient_x(i_,j_) = ( phi_(ip_,j_) - phi_(im_,j_) ) / dx_
@@ -270,14 +270,14 @@ contains
   end function Gradient_x
 
 
-  pure function Gradient_y ( phi_, dy_, i_, j_, im_, ip_, jm_, jp_ )
+  pure function Gradient_y ( phi_, dy_, i_, j_, jm_, jp_ )
     implicit none
 
 
     real ( kind = 8 ), dimension ( Nx, Ny ), intent ( in ) :: phi_
     real ( kind = 8 ), dimension ( Nx, Ny ):: gradient_y
     real ( kind = 8 ), intent ( in )       :: dy_
-    integer ( kind = 4 ), intent ( in )    :: i_, j_, ip_, im_, jp_, jm_
+    integer ( kind = 4 ), intent ( in )    :: i_, j_, jp_, jm_
 
 
     Gradient_y(i_,j_) = ( phi_(i_,jp_) - phi_(i_,jm_) ) / dy_
