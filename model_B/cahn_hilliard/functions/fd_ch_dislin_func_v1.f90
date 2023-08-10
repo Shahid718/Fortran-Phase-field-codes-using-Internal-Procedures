@@ -6,7 +6,7 @@
 !              Shahid Maqbool
 ! 
 !   Modified :
-!                13 Feb. 2023
+!                13 Feb. 2023, 10 August 2023
 !
 !   To compile and run :
 !                          Check ReadMe
@@ -58,7 +58,7 @@ program fd_ch_test
 
 
   ! ===========================================================================
-  !                            initial microstucture
+  !                            initial microstructure
   ! ===========================================================================
 
 
@@ -176,7 +176,7 @@ contains
 
   function Laplacian ( lap_con_, con_, dx_, dy_, dummy_con_, &
        & dfdcon_, grad_coef_, i_ , j_, ip_, jp_, im_, jm_ )
-
+    implicit none
 
     real ( kind = 8 ), dimension ( Nx, Ny ), intent ( in out ):: lap_con_
     real ( kind = 8 ), dimension ( Nx, Ny ), intent ( in out ):: dummy_con_
@@ -201,8 +201,8 @@ contains
     if ( jp_ == ( Ny + 1 ) ) jp_ = 1
 
 
-    lap_con_(i_,j_) = ( con(ip_,j_) + con(im_,j_) + con(i_,jm_) + con(i_,jp_) &
-         & - 4.0*con(i_,j_) ) / ( dx_*dy_ )
+    lap_con_(i_,j_) = ( con_(ip_,j_) + con_(im_,j_) + con_(i_,jm_) + con_(i_,jp_) &
+         & - 4.0*con_(i_,j_) ) / ( dx_*dy_ )
 
     dummy_con_(i_,j_) = dfdcon_(i_,j_) - grad_coef_*lap_con_(i_,j_)
 
