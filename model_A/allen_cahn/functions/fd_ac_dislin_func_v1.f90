@@ -50,9 +50,8 @@ program fd_ac_test
   real ( kind = 8 )   , parameter :: noise = 0.02
   real ( kind = 8 )   , parameter :: A  = 1.0
   integer ( kind = 4 )           :: i, j, jp, jm, ip, im
-  real ( kind = 8 )   , dimension ( Nx, Ny ) :: r, phi, dfdphi
-  real ( kind = 8 )   , dimension ( Nx, Ny ) :: lap_phi, laplace
-
+  real ( kind = 8 )   , dimension ( Nx, Ny ) :: phi, dfdphi, laplace
+  
 
   call cpu_time ( start )
 
@@ -82,8 +81,7 @@ program fd_ac_test
 
            dfdphi = Deriv_free_energy ( A, phi, i, j )
 
-           laplace = Laplacian ( lap_phi, phi, dx, dy, &
-                &  i, j, ip, jp, im, jm )
+           laplace = Laplacian ( phi, dx, dy, i, j, ip, jp, im, jm )
 
            phi(i,j) = phi(i,j) - dt*mobility*( dfdphi(i,j) - &
                 & grad_coef*laplace(i,j) )
@@ -143,7 +141,7 @@ contains
 
     call random_number ( r )
 
-    Introduce_fluctuation = initial_phi + noise_*( 0.5 - r )
+    Introduce_fluctuation = initial_phi_ + noise_*( 0.5 - r )
 
 
   end function Introduce_fluctuation
@@ -176,11 +174,9 @@ contains
 
 
 
-  function Laplacian ( lap_phi_, phi_, dx_, dy_, &
-       & i_ , j_, ip_, jp_, im_, jm_ )
+  function Laplacian ( phi_, dx_, dy_, i_ , j_, ip_, jp_, im_, jm_ )
 
 
-    real ( kind = 8 ), dimension ( Nx, Ny ), intent ( in out ):: lap_phi_
     real ( kind = 8 ), dimension ( Nx, Ny ), intent ( in ) :: phi_
     real ( kind = 8 ), dimension ( Nx, Ny )                :: laplacian
     integer ( kind = 4 ), intent ( in )                    :: dx_, dy_, i_, j_
