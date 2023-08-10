@@ -6,7 +6,7 @@
 !              Shahid Maqbool
 ! 
 !   Modified :
-!                13 Feb. 2023
+!                13 Feb. 2023, 10 August 2023
 !
 !   To compile and run :
 !                          Check ReadMe
@@ -45,7 +45,7 @@ program fd_ch_test
 
 
   ! ===========================================================================
-  !                            initial microstucture
+  !                            initial microstructure
   ! ===========================================================================
 
 
@@ -141,7 +141,7 @@ contains
        dfdcon_(i,j) = A*( 2.0*con_(i,j)*( 1.0 - con_(i,j) )**2 &
             - 2.0*con_(i,j)**2*( 1.0 - con_(i,j) ) )
 
-       ! laplace evaluation
+       ! Laplace evaluation
 
        jp = j + 1
        jm = j - 1
