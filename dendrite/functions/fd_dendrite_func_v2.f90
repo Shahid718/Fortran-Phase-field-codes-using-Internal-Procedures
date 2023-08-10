@@ -6,7 +6,7 @@
 !              Shahid Maqbool
 ! 
 !   Modified :
-!               13 Feb. 2023
+!               13 Feb. 2023, 10 August 2023
 !
 !   To compile and run :
 !                            check ReadMe file
@@ -142,7 +142,6 @@ contains
     real ( kind = 8 )    :: dtime  = 1.0e-4
     real ( kind = 8 )    :: tau   = 0.0003
     real ( kind = 8 )    :: epsilonb = 0.01
-    real ( kind = 8 )    :: mu    = 1.0
     real ( kind = 8 )    :: kappa = 1.8
     real ( kind = 8 )    :: delta = 0.02
     real ( kind = 8 )    :: aniso = 6.0
