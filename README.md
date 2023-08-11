@@ -18,7 +18,7 @@ Procedures in Fortran are of two types:
 *  function
 *  subroutine
 
-Function has a single output, however a subroutine can produce several. This is the primary distinction between a function and a subroutine. Additionally, a user-defined function is used similarly to an intrinsic function, however using a subroutine requires a `call` keyword [[Ref]](https://en.wikibooks.org/wiki/Fortran/Fortran_procedures_and_functions).
+A function has a single output, however, a subroutine can produce several. This is the primary distinction between a function and a subroutine. Additionally, a user-defined function is used similarly to an intrinsic function, however using a subroutine requires a `call` keyword [[Ref]](https://en.wikibooks.org/wiki/Fortran/Fortran_procedures_and_functions).
 
 <span style="color:green "> **Internal procedures**</span> differ from the <span style="color:green "> **intrinsic procedures**</span>. The intrinsics are defined by the standard e.g., [call cpu_time ( )](https://gcc.gnu.org/onlinedocs/gfortran/CPU_005fTIME.html). Internal procedures, on the other hand, are defined by the user and are placed in the same file. The contains statement separates the main program from the subprogram i.e., the internal procedure. The basic idea is shown below.
 
@@ -26,9 +26,9 @@ Function has a single output, however a subroutine can produce several. This is 
 
 In many aspects, procedures are similar to the main program. They have a similar appearance, a name, and can also have local variables. That is why the procedures are also called sub-programs.
 
-The subprogram declares the dummy arguments with the intent attribute and can also declare local variables. In subroutine, the intent (out) declared variable stores the value of the expression but in function the value can be stored in function itself. Therefore, Fortran functions are very much like mathematical functions.
+The subprogram declares the dummy arguments with the intent attribute and can also declare local variables. In the subroutine, the intent (out) declared variable stores the value of the expression but in the function, the value can be stored in the function itself. Therefore, Fortran functions are very much like mathematical functions.
 
-The following example does show the use of subroutine and function. The <span style="color:green "> **main program**</span> declares the parameters and makes call to subroutine `fluctuation1` and invokes function `fluctuation2`. 
+The following example does show the use of subroutine and function. The <span style="color:green "> **main program**</span> declares the parameters and makes a call to subroutine `fluctuation1` and invokes function `fluctuation2`. 
 
 ```Fortran
 program example
@@ -77,7 +77,7 @@ end program
 
 The second feature of this repository is the use of <span style="color:green "> **do concurrent construct**</span>. The `do concurrent construct` was introduced in <span style="color:green "> **Fortran 2008**</span>. It aids in generating the vector code to improve performance. In the [previous work](https://github.com/Shahid718/Programming-Phase-field-in-Fortran/tree/main/model_B/example) we have used it already.
 
-Care must be taken when using `do concurrent construct` with procedures. If procedures are called with in do concurrent construct they are required to be <span style="color:green ">**pure**</span>. In pure procedures, the intent attribute of all dummy variable must be declared. These codes  usually use simple procedure for the intial microstructure and the pure procedures for the evolution.
+Care must be taken when using `do concurrent construct` with procedures. If procedures are called within do concurrent construct they are required to be <span style="color:green ">**pure**</span>. In pure procedures, the intent attribute of all dummy variables must be declared. These codes  usually use simple procedures for the initial microstructure and pure procedures for the evolution.
 
 ## **Conventions**
 
@@ -95,7 +95,7 @@ Here we present some conventions.
 
 ![flowchart](images/granularity.jpg)
 
-* The program makes calls to many routines; they are either intrinsic or user defined. To differentiate, we write all *intrinsic subroutines* with <span style="color:green ">**small letters**</span>, and *user-defined routines* with <span style="color:green ">**first letter capital**</span>. 
+* The program makes calls to many routines; they are either intrinsic or user-defined. To differentiate, we write all *intrinsic subroutines* with <span style="color:green ">**small letters**</span>, and *user-defined routines* with <span style="color:green ">**first letter capital**</span>. 
 
 * The user-defined routines are written with associated action verbs. For instance, we usually introduce fluctuation at the initial stage and we set the boundary conditions. This style is also proposed by [Norman S. Clerman](https://www.amazon.com/Modern-Fortran-Style-Norman-Clerman/dp/052173052X), see <span style="color:green ">**rule 26, 27**</span>. The table clarifies the concept:
 
@@ -114,7 +114,7 @@ gh repo clone Shahid718/Fortran-Phase-field-codes-using-Internal-Procedures
 
 ## **Compile and run**
 
-* **using script by Dislin**
+* **using a script by Dislin**
 
 > f90link -a -r8 main
 
@@ -140,6 +140,6 @@ and to run, enter
 
 In case, you find issues to report or having trouble using the codes, you may contact via email
 
-shahid@rwth-aachen.de
+shahid.maqbool@rwth-aachen.de
 
 shahid@postech.ac.kr
