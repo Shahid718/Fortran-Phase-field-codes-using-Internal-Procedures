@@ -109,7 +109,7 @@ Here we present some conventions.
 ## **Get the code**
 
 ```
-gh repo clone Shahid718/Fortran-Phase-field-codes-using-Internal-Procedures
+git clone https://github.com/Shahid718/Fortran-Phase-field-codes-using-Internal-Procedures
 ```
 
 ## **Compile and run**
