@@ -104,7 +104,8 @@ program fd_Kobayashi_model_test
   time_loop: do step = 1, no_of_steps
 
 
-     do concurrent ( i = 1:Nx, j = 1:Ny )
+    do i = 1 , Nx
+        do j = 1, Ny
 
         ! boundary conditions
 
@@ -140,9 +141,11 @@ program fd_Kobayashi_model_test
         epsilon_deriv(i,j) = -epsilonb*aniso*delta*sin&
              & ( aniso*( theta - theta0 ) )
 
-     end do
+        end do
+     end do   
 
-     do concurrent ( i = 1:Nx, j = 1:Ny )
+     do i = 1 , Nx
+        do j = 1, Ny
 
         ! boundary conditions
 
@@ -182,8 +185,8 @@ program fd_Kobayashi_model_test
         tempr(i,j) = tempr(i,j) + dtime*lap_tempr(i,j) &
              & + kappa*( phi(i,j) - phi_old )
 
+        end do
      end do
-
 
      ! print steps on the console
 
