@@ -77,7 +77,8 @@ program fd_ch_test
   time_loop: do step = 1, no_of_steps
   
 
-     spatial_loop:  do concurrent ( j = 1 : Nx , i = 1 : Ny )
+     do i = 1, Nx
+        do j = 1, Ny
 	 
 
         call Set_boundary_conditions (i, j, jp, jm, ip, im )
@@ -88,9 +89,10 @@ program fd_ch_test
              & dfdcon, grad_coef, lap_dummy, i, j, ip, jp, im, jm )
 
         call Perform_time_integration ( con, dt, mobility, lap_dummy, i, j )
-		
 
-     end do spatial_loop
+  
+        end do
+     end do
 
 
      ! adjust concentration in range
