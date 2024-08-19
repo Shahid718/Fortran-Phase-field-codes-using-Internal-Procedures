@@ -133,8 +133,8 @@ contains
     integer ( kind = 4 ) :: i, j, jp, jm, ip, im, dx =1, dy = 1
 
 
-    spatial_loop: do concurrent ( i =1:Nx, j=1:Ny )
-
+    do i = 1, Nx
+       do j = 1, Ny
 
        ! free energy derivative
 
@@ -168,7 +168,8 @@ contains
        con_(i,j) =  con_(i,j) + dt*mobility*lap_dummy_(i,j)
 
 
-    end do spatial_loop
+       end do
+    end do
 
   end subroutine Perform_evolution
 
