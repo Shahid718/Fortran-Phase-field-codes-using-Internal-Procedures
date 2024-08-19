@@ -87,9 +87,9 @@ program fd_Kobayashi_model_test
   time_loop: do step = 1, no_of_steps
 
 
-     first_spatial_loop:  do concurrent ( j = 1 : Nx , i = 1 : Ny )
+  do i = 1, Nx
+       do j = 1, Ny
         
-
         
         call Set_boundary_conditions (i, j, jp, jm, ip, im )
 
@@ -105,13 +105,13 @@ program fd_Kobayashi_model_test
              & aniso, theta, theta0, epsilon_deriv, i, j )
 
         
-        
-     end do first_spatial_loop
+        end do
+     end do 
 
      
 
-     second_spatial_loop:  do concurrent ( j = 1 : Nx , i = 1 : Ny )
-
+     do i = 1, Nx
+        do j = 1, Ny
         
 
         call Set_boundary_conditions (i, j, jp, jm, ip, im )
@@ -127,8 +127,8 @@ program fd_Kobayashi_model_test
              & epsil, lap_phi, phi_old, m, tempr, lap_tempr, kappa, i, j)
 
 
-        
-     end do second_spatial_loop
+        end do
+     end do 
 
 
      ! print steps on the console
