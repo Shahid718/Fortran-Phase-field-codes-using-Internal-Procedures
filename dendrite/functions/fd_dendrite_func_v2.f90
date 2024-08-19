@@ -162,7 +162,8 @@ contains
     real ( kind = 8 ), intent ( in out )                      :: theta_, m_
 
 
-    do concurrent ( j=1:Ny, i=1:Nx )
+    do i = 1, Nx
+       do j = 1, Ny
 
        jp = j + 1
        jm = j - 1
@@ -198,11 +199,11 @@ contains
        epsilon_deriv_(i,j) = -epsilonb*aniso*delta*sin &
             & ( aniso*( theta - theta0 ) )
 
-
+       end do
     end do
 
-    do concurrent ( j=1:Ny, i=1:Nx )
-
+    do i = 1, Nx
+       do j = 1, Ny
        
        jp = j + 1
        jm = j - 1
@@ -236,8 +237,8 @@ contains
        tempr_(i,j) = tempr_(i,j) + dtime*lap_tempr_(i,j) &
             & + kappa*( phi_(i,j) - phi_old_ )
 
-    end do
-
+       end do
+   end do
 
   end subroutine Perform_evolution
 
