@@ -12,7 +12,7 @@ This work uses **internal procedures** for 2D simulation of dendrite growth by K
 * Functions
 * Subroutines
 
-The first part demonstrates: How to implement the code, and what are the expected outputs? The following sections explains the codes with functions and subroutines.
+The first part demonstrates: How to implement the code, and what are the expected outputs? The following sections explain the codes with functions and subroutines.
 
 # **Fortran implementation**
 
@@ -46,7 +46,7 @@ The function files are:
 
 ## **Flow Chart version 1**
 
-The basic structure of the **main program** is shown in the figure below. The left column shows the three main sections. The middle column shows the function calls in those sections. The right side shows the numerical scheme where the equations relavant to those procedures call are presented in different color scheme.
+The basic structure of the **main program** is shown in the figure below. The left column shows the three main sections. The middle column shows the function calls in those sections. The right side shows the numerical scheme where the equations relevant to those procedures call are presented in different color schemes.
 
 ![flowchart](images/flowchart.png)
 
@@ -58,7 +58,7 @@ This section defines and declare the parameters as in the previous repository.
 
 ### **Initial microstructure**
 
-The statement invokes the function `initial_microstructure`. It takes `seed` as actual argument and assigns the function value to the `phi` array. 
+The statement invokes the function `initial_microstructure`. It takes `seed` as the actual argument and assigns the function value to the `phi` array. 
 
 Now the area where `phi = 1` is a small solid initial structure and others have `phi = 0`. The initial temperature is `0` in the system.
 
@@ -92,7 +92,7 @@ Theta is evaluated with the `Theta_angle` function. `Factor_m` function is invok
 
 The computed steps are printed on the screen with the next statement.
 
-The next call is for color plot with Dislin library. The dislin graphical library module is included in the begining. This library has many subroutines as we used in the previous repository. Therefore, to make it under one subroutine call i.e., `Dislin_color_multi_plot()` we put together all those related routines. This makes it easy to get the plot with a single call. We set the plots at two times steps `1` and `2000`
+The next call is for color plot with Dislin library. The dislin graphical library module is included in the beginning. This library has many subroutines as we used in the previous repository. Therefore, to make it under one subroutine call i.e., `Dislin_color_multi_plot()` we put together all those related routines. This makes it easy to get the plot with a single call. We set the plots at two times steps `1` and `2000`
 
 ```Fortran
   time_loop: do step = 1, no_of_steps
@@ -138,7 +138,7 @@ call cpu_time ( finish )
 
 ### **Output**
 
-The output section makes two calls for writing data on the files; the first call writes parameters which are initially provided and the computed time, the second one writes field values at the end of the simulation. 
+The output section makes two calls for writing data on the files; the first call writes parameters initially provided and the computed time, and the second one writes field values at the end of the simulation. 
 
 ```Fortran 
   call Write_input_parameters_on_file
@@ -153,8 +153,7 @@ The contains statement separates the main program from the sub-program (procedur
 
 ### **Internal subprograms**
 
-This section has the user defined procedures (table 1). The pure routines are declared with `intent attributes` to avoid any side effects. Also this is required if `do concurrent` construct is used.
-
+This section has the user defined procedures (table 1). The pure routines are declared with `intent attributes` to avoid any side effects. 
 
 **Table 1:** Routines and functions used in the program. 
 
@@ -198,7 +197,7 @@ The output of the subroutine is the `phi`, and `tempr` arrays.
 
 ### **Output**
 
-The output section makes a single call. Now both write opeations are called with this single procedure. 
+The output section makes a single call. Now both write operations are called with this single procedure. 
 
 ```Fortran 
  call Output_files
@@ -206,7 +205,7 @@ The output section makes a single call. Now both write opeations are called with
 
 ### **Internal subprograms**
 
-This section has the user defined procedures (table 2). Only four procedures are called in the main program.
+This section has the user-defined procedures (table 2). Only four procedures are called in the main program.
 
 
 **Table 2:**
@@ -221,7 +220,7 @@ This section has the user defined procedures (table 2). Only four procedures are
 
 # **Subroutines**
 
-For the file `fd_dendrite_dislin_sub_v1.f90`, the basic structure is explain here. 
+For the file `fd_dendrite_dislin_sub_v1.f90`, the basic structure is explained here. 
 
 ### **initial microstucture**
 
@@ -233,14 +232,15 @@ The initial microstructure is introduced by the routine call
 
 ### **evolution**
 
-The evolution section makes individual call to all the parameters or equations ( the parameters determined independently in the previous repository).
+The evolution section makes individual calls to all the parameters or equations ( the parameters determined independently in the previous repository).
 
 
 ```Fortran
   time_loop: do step = 1, no_of_steps
 
      
-     first_spatial_loop:  do concurrent ( j = 1 : Nx , i = 1 : Ny )
+   do i = 1, Nx
+       do j = 1, Ny
         
 
         call Set_boundary_conditions (i, j, jp, jm, ip, im )
@@ -256,11 +256,12 @@ The evolution section makes individual call to all the parameters or equations (
         call Compute_epsilon_and_its_derivative ( epsil, epsilonb, delta, &
              & aniso, theta, theta0, epsilon_deriv, i, j )
 
-        
-     end do first_spatial_loop
+        end do
+     end do 
 
      
-     second_spatial_loop:  do concurrent ( j = 1 : Nx , i = 1 : Ny )
+     do i = 1, Nx
+        do j = 1, Ny
         
 
         call Set_boundary_conditions (i, j, jp, jm, ip, im )
@@ -275,8 +276,8 @@ The evolution section makes individual call to all the parameters or equations (
         call Perform_time_integration ( phi, dtime, tau, term1, term2,&
              & epsil, lap_phi, phi_old, m, tempr, lap_tempr, kappa, i, j)
 
-        
-     end do second_spatial_loop
+        end do
+     end do 
 
 
      ! print steps on the console
@@ -309,4 +310,4 @@ Below, we show the user-defined procedures in `version 1`.
 | Write_input_parameters_on_file |
 |  Output_phi_and_temperature_on_files|
 
-For **version 2**, the evolution section is same as in `version 2` of function file.
+For **version 2**, the evolution section is the same as in `version 2` of the function file.
