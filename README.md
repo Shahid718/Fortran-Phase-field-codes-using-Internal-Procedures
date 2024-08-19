@@ -9,7 +9,7 @@
 The repository contains phase-field Fortran codes using 
 
 * internal procedures
-* do concurrent
+* pure procedures
 
 ## **Introduction**
 
@@ -75,9 +75,7 @@ contains
 end program
 ```
 
-The second feature of this repository is the use of <span style="color:green "> **do concurrent construct**</span>. The `do concurrent construct` was introduced in <span style="color:green "> **Fortran 2008**</span>. It aids in generating the vector code to improve performance. In the [previous work](https://github.com/Shahid718/Programming-Phase-field-in-Fortran/tree/main/model_B/example) we have used it already.
-
-Care must be taken when using `do concurrent construct` with procedures. If procedures are called within do concurrent construct they are required to be <span style="color:green ">**pure**</span>. In pure procedures, the intent attribute of all dummy variables must be declared. These codes  usually use simple procedures for the initial microstructure and pure procedures for the evolution.
+The second feature of this repository is the use of <span style="color:green "> **pure procedures**</span>. The feature was introduced in <span style="color:green "> **Fortran 95**</span>. In pure procedures, the intent attribute of all dummy variables must be declared. We usually use simple procedures for the initial microstructure and pure procedures for the evolution.
 
 ## **Conventions**
 
