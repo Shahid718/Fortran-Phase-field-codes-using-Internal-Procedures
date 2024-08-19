@@ -142,7 +142,8 @@ contains
     integer ( kind = 4 ) :: i, j, jp, jm, ip, im, dx = 1, dy = 1
 
 
-    do concurrent ( i = 1:Nx, j =1:Ny )
+    do i = 1, Nx
+       do j = 1, Ny
 
 
        ! free energy derivative
@@ -172,7 +173,7 @@ contains
             & dummy_con_(i,jm) + dummy_con_(i,jp) - &
             & 4.0*dummy_con_(i,j) ) / ( dx*dy )
 
-
+       end do
     end do
 
 end function laplacian
