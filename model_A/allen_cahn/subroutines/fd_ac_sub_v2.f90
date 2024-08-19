@@ -138,8 +138,8 @@ contains
     integer ( kind = 4 ) :: i, j, jp, jm, ip, im, dx = 2, dy = 2
 
 
-    do concurrent ( j = 1:Ny, i = 1:Nx )
-
+    do i = 1, Nx
+       do j = 1, Ny
 
        dfdphi_(i,j) = A*( 2.0*phi_(i,j)*( 1.0 - phi_(i,j) )**2 &
             *( 1.0 - 2*phi_(i,j) ) )
@@ -167,6 +167,7 @@ contains
        phi_(i,j) = phi_(i,j) - dt*mobility*dummy_phi(i,j)
 
 
+       end do
     end do
 
 
