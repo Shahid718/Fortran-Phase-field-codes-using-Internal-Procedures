@@ -145,7 +145,8 @@ contains
     integer ( kind = 4 ) :: i, j, jp, jm, ip, im, dx = 2, dy = 2
 
 
-    do concurrent ( j = 1:Ny, i = 1:Nx )
+    do i = 1, Nx
+       do j = 1, Ny
 
 
        ! free energy derivative
@@ -173,6 +174,7 @@ contains
        Dummy_phi(i,j) = dfdphi_(i,j) - grad_coef*lap_phi_(i,j)
 
 
+       end do
     end do
 
 
