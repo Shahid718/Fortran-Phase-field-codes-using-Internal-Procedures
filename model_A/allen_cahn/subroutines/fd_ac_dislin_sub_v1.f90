@@ -76,8 +76,8 @@ program fd_ac_test
   time_loop: do step = 1, no_of_steps
 
 
-     spatial_loop:  do concurrent ( j = 1 : Nx , i = 1 : Ny )
-
+    do i = 1, Nx
+        do j = 1, Ny
 
         call Set_boundary_conditions ( i, j, jp, jm, ip, im )
 
@@ -89,8 +89,8 @@ program fd_ac_test
         call Perform_time_integration ( phi, dt, mobility, &
              & grad_coef, lap_phi, dfdphi, i, j )
 
-
-     end do spatial_loop
+        end do
+     end do 
 
 
      ! adjust order parameter in range
